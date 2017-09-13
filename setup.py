@@ -7,7 +7,15 @@ Created on Jan 10, 2013
 @author: shroffk
 '''
 
-from distutils.core import setup
+'''It is recomended to use setuptools over distutils if installed
+https://packaging.python.org/guides/tool-recommendations/ 
+'''
+try:
+    # If possible, use setuptools.Extension so we get setup_requires
+    from setuptools import Extension, setup
+except ImportError:
+    from distutils.core import setup
+    from distutils.extension import Extension
 
 
 setup(name='pyOlog',
